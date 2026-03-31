@@ -1,0 +1,14 @@
+# Configure service registration center
+eureka:
+  instance:
+    hostname: localhost
+    # Set the Instance ID to the format of IP:port
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  server:
+    enable-self-preservation: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false # it's fetch http://host:port/eureka/
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

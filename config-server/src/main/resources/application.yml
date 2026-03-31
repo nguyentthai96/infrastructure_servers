@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    # Configure the configuration service and read the configuration file from the shared directory of the local warehouse
+    config:
+      server:
+        native:
+          search-locations: classpath:/shared
+  profiles:
+    active: native
+  security:
+    user:
+      password: ${CONFIG_SERVICE_PASSWORD}
+
+
+
+# Configure service registration center
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8760/eureka/

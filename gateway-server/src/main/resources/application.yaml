@@ -1,0 +1,10 @@
+spring:
+  config:
+    import: "optional:configserver:http://localhost:8900"
+    name: gateway_server
+
+# Configure service registration center
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8760/eureka/
